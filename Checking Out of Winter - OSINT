@@ -1,0 +1,90 @@
+---
+
+Hello, here is my thought process during the OSINT challenges for the IrisCTF2025
+
+Challenge: 
+
+CHALLENGE'S DISCLAIMER: Please do not include any accent markings or special characters into the flag. Apply proper capitalization to the flag. Here's an example of the flag irisctf{Iris_Hotel} if there is a special symbol like '&' please type out the word 'and'.
+
+We took our annual road trip to Baja California Sur to visit the beach and play some golf. I like how this location is farther from the city compared to other resorts. I really enjoyed the sweet and savory sauce on the pizza with shredded chicken. After eating, I fell asleep, and half of my legs ended up getting tanned.
+
+Question: Which hotel did Adam stay at?
+
+Picture:
+
+My first thought was to throw this into Google image search and only look for the architecture in the photo. It looks distinct enough that I should get close enough to the hotel.
+
+This looked super close and I believed I had the hotel confirmed by an instagram post.
+
+I believed the hotel was the Hilton Los Cabos
+
+so I tried irisctf{Hilton_los_Cabos}
+
+*that didnt work*
+
+My partner (shout out to @medjay) tried Hilton_Los_Cabos_Resort_&_Golf
+
+this wasnt working either
+
+I started to go down rabbit holes looking for different hotels in california not Cabo
+
+
+Nothing was working
+
+I started to big brain it, look at the Exif data of the photo
+
+ExifTool Version Number         : 12.57
+File Name                       : Pizza_by_Pool.png
+Directory                       : .
+File Size                       : 3.3 MB
+File Modification Date/Time     : 2025
+
+03 16:17:13-08:00
+File Access Date/Time           : 2025
+
+03 16:17:13-08:00
+File Inode Change Date/Time     : 2025
+
+03 16:17:13-08:00
+File Permissions                : -rw-r--r--
+File Type                       : PNG
+File Type Extension             : png
+MIME Type                       : image/png
+Image Width                     : 1274
+Image Height                    : 1418
+Bit Depth                       : 8
+Color Type                      : RGB with Alpha
+Compression                     : Deflate/Inflate
+Filter                          : Adaptive
+Interlace                       : Noninterlaced
+SRGB Rendering                  : Perceptual
+Exif Byte Order                 : Big-endian (Motorola, MM)
+Image Size                      : 1274x1418
+Megapixels                      : 1.8
+
+*Nothing*
+
+Medjay and I went down a hungry rabbit hole trying to find this pizza 
+
+
+
+at this point, I made a ticket, I figured it was a me problem with the flag… I made a ticket with the organizer and they let me know I was close…
+
+irisctf{Hilton_Puerto_Los_Cabos_Resort_and_Golf} didnt work
+
+irisctf{Hilton_Los_Cabos_Resort_Beach_and_Golf} didnt work either
+
+then Medjay figured it out 
+
+irisctf{Hilton_Los_Cabos_Beach_and*Golf* Resort}
+
+Brief steps:
+
+- **Examine the Image**: Look for distinctive architectural features.
+- **Google Image Search**: Find similar architecture, leading to Hilton Los Cabos.
+- **Initial Flag Attempts**: Try variations like `irisctf{Hilton_los_Cabos}`, but they don’t work.
+- **Explore Other Hotels**: Search for other hotels in the region, but still no success.
+- **Check EXIF Data**: No useful clues from the image metadata.
+- **Search for Pizza**: Investigate the pizza image as a side task, but it doesn’t help.
+- **Ticket Raised**: Organizer confirms you’re close, refocusing the search.
+- **Correct Flag**: Your partner identifies the correct flag: `irisctf{Hilton_Los_Cabos_Beach_and_Golf_Resort}`.
